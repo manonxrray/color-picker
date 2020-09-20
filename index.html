@@ -33,7 +33,7 @@
             <button class="btn btn-secondary" v-on:click="reset">Cancel</button>
           </div>
           <hr />
-            <h3> Number of squares : </h3>
+            <h3> Number of squares : {{ numberOfSquares }} </h3>
           <hr />
           <div class="col-12" v-if="numberOfSquares">
             <div class="prevsquare" v-for="square in squares" v-bind:style="{ backgroundColor: square }"></div>
