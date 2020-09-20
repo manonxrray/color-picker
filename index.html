@@ -29,20 +29,20 @@
           </div>
           <hr />
           <div class="col-12">
-            <button class="btn btn-primary" v-on:click="saveSquare">Save</button>
-            <button class="btn btn-secondary" v-on:click="reset">Cancel</button>
+            <button class="btn btn-primary" @click="saveSquare">Save</button>
+            <button class="btn btn-secondary" @click="reset">Cancel</button>
           </div>
           <hr />
             <h3> Number of squares : {{ numberOfSquares }} </h3>
           <hr />
           <div class="col-12" v-if="numberOfSquares">
-            <div class="prevsquare" v-for="square in squares" v-bind:style="{ backgroundColor: square }"></div>
+            <div class="prevsquare" v-for="square in squares" @click="selectedSquare=square" :style="{ backgroundColor: square }"></div>
           </div>
           <h3 v-else > Add colors !</h3>
         </div>
       </div>
       <div class="col-6">
-        <div class="square mx-auto" ></div>
+        <div class="square mx-auto" :style="{ backgroundColor: selectedSquare }"></div>
       </div>
     </div>
   </div>
@@ -54,7 +54,8 @@
         red: 0,
         green: 0,
         blue: 0,
-        squares: []
+        squares: [],
+        selectedSquare: ''
       },
       methods: {
         resetColors(){
